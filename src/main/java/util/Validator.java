@@ -17,10 +17,14 @@ public class Validator {
         //check if params are positive integers
         valid = areParamsPositiveIntegers(params, Constants.ERROR_MESSAGE_CREATE_CANVAS);
 
+        //check if we have 2 valid parameters supplied
+        if(!valid || params.length < 2)
+            throw new InvalidInputParameterException(Constants.ERROR_MESSAGE_CREATE_CANVAS);
+
         return valid;
     }
 
-    public static boolean areParamsPositiveIntegers(String input[], String errorMessage) {
+    private static boolean areParamsPositiveIntegers(String input[], String errorMessage) {
         try{
             return Arrays.stream(input).allMatch(s -> StringUtils.isNotBlank(s) && Integer.parseInt(s) > 0);
         }catch(NumberFormatException exception) {
