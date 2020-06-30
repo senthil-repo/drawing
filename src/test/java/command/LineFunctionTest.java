@@ -11,7 +11,6 @@ import java.util.stream.Stream;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
 /**
  * Created on 30/06/2020.
@@ -90,7 +89,7 @@ public class LineFunctionTest {
         //fill line
         for(int i = 0; i < 6 ; i++ ) {
             for(int j = 1; j < 2; j++) {
-                canvasArray[i][j] = Constants.LINE; //TODO move to constants
+                canvasArray[i][j] = Constants.LINE;
             }
         }
         return canvasArray;
