@@ -64,6 +64,14 @@ public class LineFunctionTest {
         }
     }
 
+    @Test
+    public void testapplyCanvasFunction_DescendingOrder_Params() {
+        String params[] = {"6", "2", "1", "2"};
+        lineFunction.applyCanvasFunction(inputCanvas, params);
+
+        char resultCanvasArray[][] = inputCanvas.getCanvasArray();
+        assertArrayEquals(" Wrong result ", getExpectedCanvasArray(), resultCanvasArray);
+    }
 
     private Canvas getCanvas() {
         Canvas canvas = new Canvas(10, 4);
@@ -82,7 +90,7 @@ public class LineFunctionTest {
         //fill line
         for(int i = 0; i < 6 ; i++ ) {
             for(int j = 1; j < 2; j++) {
-                canvasArray[i][j] = 'x'; //TODO move to constants
+                canvasArray[i][j] = Constants.LINE; //TODO move to constants
             }
         }
         return canvasArray;
