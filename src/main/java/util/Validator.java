@@ -50,4 +50,9 @@ public class Validator {
 
         return valid;
     }
+
+    public static boolean isRectangleParamsValid(String params[]) {
+        return isParamsValid(params, Constants.ERROR_MESSAGE_RECTANGLE_INVALID_PARAMS);
+    }
+
 }

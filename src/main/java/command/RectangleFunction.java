@@ -3,6 +3,7 @@ package command;
 import domain.Canvas;
 import domain.Constants;
 import domain.Rectangle;
+import util.Validator;
 
 /**
  * Created on 30/06/2020.
@@ -10,8 +11,10 @@ import domain.Rectangle;
 public class RectangleFunction implements CanvasFunction {
     @Override
     public void applyCanvasFunction(Canvas canvas, String[] params) {
-        Rectangle rectangle = new Rectangle(params);
-        fillWithRectangle(rectangle, canvas.getCanvasArray());
+        if(Validator.isRectangleParamsValid(params)) {//validate the params
+            Rectangle rectangle = new Rectangle(params);
+            fillWithRectangle(rectangle, canvas.getCanvasArray());
+        }
     }
 
     private void fillWithRectangle(Rectangle rectangle, char[][] canvasArray) {
