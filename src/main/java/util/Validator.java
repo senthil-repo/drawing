@@ -31,4 +31,18 @@ public class Validator {
             throw new InvalidInputParameterException(errorMessage);
         }
     }
+
+    public static boolean isLineParamsValid(String params[]) {
+        return isParamsValid(params, Constants.ERROR_MESSAGE_LINE_INVALID_PARAMS);
+    }
+
+    private static boolean isParamsValid(String params[], String errorMessage) {
+        //check if params are positive integers
+        boolean valid = areParamsPositiveIntegers(params, errorMessage);
+
+        if(!valid)
+            throw new InvalidInputParameterException(errorMessage);
+
+        return valid;
+    }
 }

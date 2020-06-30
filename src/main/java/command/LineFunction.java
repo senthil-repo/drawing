@@ -3,6 +3,7 @@ package command;
 import domain.Canvas;
 import domain.Constants;
 import domain.Line;
+import util.Validator;
 
 /**
  * Created on 30/06/2020.
@@ -10,8 +11,10 @@ import domain.Line;
 public class LineFunction implements CanvasFunction {
     @Override
     public void applyCanvasFunction(Canvas canvas, String[] params) {
-        Line line = new Line(params);
-        fillWithLine(line, canvas.getCanvasArray());
+        if(Validator.isLineParamsValid(params)) {//validate the params
+            Line line = new Line(params);
+            fillWithLine(line, canvas.getCanvasArray());
+        }
     }
 
     private void fillWithLine(Line line, char[][] canvasArray) {
