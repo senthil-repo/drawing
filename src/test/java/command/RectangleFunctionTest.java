@@ -2,6 +2,7 @@ package command;
 
 import domain.Canvas;
 import domain.Constants;
+import exception.InvalidInputParameterException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,6 +10,7 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertNull;
 
 /**
  * Created on 30/06/2020.
@@ -29,6 +31,20 @@ public class RectangleFunctionTest {
         rectangleFunction.applyCanvasFunction(inputCanvas, params);
         char resultCanvasArray[][] = inputCanvas.getCanvasArray();
         assertArrayEquals(" Unexpected inputCanvas ", getExpectedCanvasArray(), resultCanvasArray);
+    }
+
+    @Test(expected = InvalidInputParameterException.class )
+    public void testApplyCanvasFunction_NegativeParams() {
+        String params[] = {"-1", "2", "6", "2"};
+        rectangleFunction.applyCanvasFunction(inputCanvas, params);
+        assertNull(" Unexpected result ", inputCanvas);
+    }
+
+    @Test(expected = InvalidInputParameterException.class)
+    public void testApplyCanvasFunction_InvalidLength() {
+        String params[] = {"1", "2", "6"};
+        rectangleFunction.applyCanvasFunction(inputCanvas, params);
+        assertNull(" Unexpected result ", inputCanvas);
     }
 
     private Canvas getCanvas() {
