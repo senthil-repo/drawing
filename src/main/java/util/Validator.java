@@ -37,10 +37,15 @@ public class Validator {
     }
 
     private static boolean isParamsValid(String params[], String errorMessage) {
-        //check if params are positive integers
-        boolean valid = areParamsPositiveIntegers(params, errorMessage);
+        boolean valid;
 
-        if(!valid)
+        //************ TODO *********** check only limited params for this function
+
+        //check if params are positive integers
+        valid = areParamsPositiveIntegers(params, errorMessage);
+
+        //check if we have 4 valid parameters supplied
+        if(!valid || params.length < 4)
             throw new InvalidInputParameterException(errorMessage);
 
         return valid;

@@ -1,5 +1,7 @@
 package domain;
 
+import exception.InvalidInputParameterException;
+
 /**
  * Created on 30/06/2020.
  */
@@ -14,6 +16,10 @@ public class Line {
         y1 = Integer.parseInt(params[1]);
         x2 = Integer.parseInt(params[2]);
         y2 = Integer.parseInt(params[3]);
+
+        if (x1 != x2 && y1 != y2) {
+            throw new InvalidInputParameterException(Constants.ERROR_MESSAGE_LINE_DIAGONAL_NOT_SUPPORTED);
+        }
 
     }
 
