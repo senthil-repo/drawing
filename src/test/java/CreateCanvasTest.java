@@ -14,6 +14,7 @@ import static org.junit.Assert.assertArrayEquals;
  */
 public class CreateCanvasTest {
     CreateCanvas createCanvas;
+    char resultCanvasArray[][];
 
     @Before
     public void setup() {
@@ -23,12 +24,11 @@ public class CreateCanvasTest {
     @Test
     public void testCreateCanvas() {
         String params[] = {"4", "5"};
-        char resultCanvasArray[][] = createCanvas.createCanvas(params);
+        resultCanvasArray = createCanvas.createCanvas(params);
 
         //expect
         char createCanvasArray[][] = new char[4][5];
         Stream.of(createCanvasArray).forEach(chars -> Arrays.fill(chars, ' '));
-
         assertArrayEquals(" Wrong characters found ", createCanvasArray, resultCanvasArray);
     }
 
@@ -36,9 +36,21 @@ public class CreateCanvasTest {
     @Test(expected = InvalidInputParameterException.class)
     public void testCreateCanvas_NegativeParams() {
         String params[] = {"-2", "2"};
-        char resultCanvasArray[][] = createCanvas.createCanvas(params);
-
+        resultCanvasArray = createCanvas.createCanvas(params);
         assertNull(resultCanvasArray);
     }
 
+    @Test(expected = InvalidInputParameterException.class)
+    public void testCreateCanvas_BlankParams() {
+        String params[] = {" ", "3"};
+        resultCanvasArray = createCanvas.createCanvas(params);
+        assertNull(resultCanvasArray);
+    }
+
+    @Test(expected = InvalidInputParameterException.class)
+    public void testCreateCanvas_InvalidLength() {
+        String params[] = {"3"};
+        resultCanvasArray = createCanvas.createCanvas(params);
+        assertNull(" Unexpected result ", resultCanvasArray);
+    }
 }

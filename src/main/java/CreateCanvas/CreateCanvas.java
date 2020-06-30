@@ -1,5 +1,7 @@
 package CreateCanvas;
 
+import util.Validator;
+
 import java.util.Arrays;
 import java.util.stream.Stream;
 
@@ -9,13 +11,15 @@ import java.util.stream.Stream;
 public class CreateCanvas {
 
     public char[][] createCanvas(String params[]) {
-        //validate the params ???
+        char canvasArray[][] = null;
+        if(Validator.isCanvasParamsValid(params)) {
+            int width = Integer.parseInt(params[0]);
+            int height = Integer.parseInt(params[1]);
 
-        int width = Integer.parseInt(params[0]);
-        int height = Integer.parseInt(params[1]);
+            canvasArray = new char[width][height];
+            fillCanvas(canvasArray);
+        }
 
-        char canvasArray[][] = new char[width][height];
-        fillCanvas(canvasArray);
         return canvasArray;
     }
 

@@ -11,7 +11,7 @@ import java.util.Arrays;
  */
 public class Validator {
 
-    public boolean isCanvasParamsValid(String[] params) {
+    public static boolean isCanvasParamsValid(String[] params) {
         boolean valid;
 
         //check if params are positive integers
