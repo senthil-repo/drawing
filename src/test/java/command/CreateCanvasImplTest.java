@@ -33,28 +33,27 @@ public class CreateCanvasImplTest {
         char resultCanvasArray[][] = canvas.getCanvasArray();
         char expectedArray[][] = new char[4][5];
         Stream.of(expectedArray).forEach(chars -> Arrays.fill(chars, ' '));
-
         assertArrayEquals(" Wrong characters found ", expectedArray, resultCanvasArray);
     }
 
-/*    @Test(expected = InvalidInputParameterException.class)
+    @Test(expected = InvalidInputParameterException.class)
     public void testCreateCanvas_NegativeParams() {
         String params[] = {"-2", "2"};
-        resultCanvasArray = createCanvas.createCanvas(params);
-        assertNull(resultCanvasArray);
+        canvas = canvasCommand.createCanvas(params);
+        assertNull(" Unexpected result ", canvas);
     }
 
     @Test(expected = InvalidInputParameterException.class)
     public void testCreateCanvas_BlankParams() {
         String params[] = {" ", "3"};
-        resultCanvasArray = createCanvas.createCanvas(params);
-        assertNull(resultCanvasArray);
+        canvas = canvasCommand.createCanvas(params);
+        assertNull(" Unexpected result ", canvas);
     }
 
     @Test(expected = InvalidInputParameterException.class)
     public void testCreateCanvas_InvalidLength() {
         String params[] = {"3"};
-        resultCanvasArray = createCanvas.createCanvas(params);
-        assertNull(" Unexpected result ", resultCanvasArray);
-    }*/
+        canvas = canvasCommand.createCanvas(params);
+        assertNull(" Unexpected result ", canvas);
+    }
 }
