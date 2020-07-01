@@ -8,6 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.Arrays;
 
 /**
+ * Validator class does all the basic validations.
  * Created on 30/06/2020.
  */
 public class Validator {
@@ -39,8 +40,6 @@ public class Validator {
 
     private static boolean isParamsValid(String params[], String errorMessage) {
         boolean valid;
-
-        //************ TODO *********** check only limited params for this function
 
         //check if params are positive integers
         valid = areParamsPositiveIntegers(params, errorMessage);

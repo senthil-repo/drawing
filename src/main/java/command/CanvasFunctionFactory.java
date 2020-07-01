@@ -6,6 +6,12 @@ import exception.InvalidCommandException;
  * Created on 30/06/2020.
  */
 public class CanvasFunctionFactory {
+    /**
+     * Creates factory of CanvasFunction (for Line, Rectangle & BucketFill commands)
+     * @param commandOperation
+     * @param strings
+     * @return
+     */
     public CanvasFunction getFunction(String commandOperation, String[] strings) {
         switch (commandOperation) {
             case "L":

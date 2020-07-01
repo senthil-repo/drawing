@@ -6,6 +6,7 @@ import exception.InvalidInputParameterException;
 import util.Validator;
 
 /**
+ * Class to process Bucket fill command, and creates a bucket fill inside the canvas
  * Created on 30/06/2020.
  */
 public class BucketFillFunction implements CanvasFunction {

@@ -1,6 +1,7 @@
 package domain;
 
 /**
+ * This is the main Canvas object that holds all the diagram
  * Created on 30/06/2020.
  */
 public class Canvas {

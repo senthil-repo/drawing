@@ -7,6 +7,7 @@ import exception.InvalidInputParameterException;
 import util.Validator;
 
 /**
+ * Class to process Rectangle command, and creates a rectangle inside the canvas
  * Created on 30/06/2020.
  */
 public class RectangleFunction implements CanvasFunction {

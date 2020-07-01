@@ -7,6 +7,7 @@ import exception.InvalidInputParameterException;
 import util.Validator;
 
 /**
+ * Class to process Line command, and creates a line inside the canvas
  * Created on 30/06/2020.
  */
 public class LineFunction implements CanvasFunction {

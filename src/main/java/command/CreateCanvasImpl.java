@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 
 /**
+ * Implementation class for creating empty canvas
  * Created on 30/06/2020.
  */
 public class CreateCanvasImpl implements CreateCanvas{

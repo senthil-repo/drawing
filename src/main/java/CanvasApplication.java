@@ -14,6 +14,7 @@ import java.util.Scanner;
 import java.util.stream.Stream;
 
 /**
+ * This is the main application to run the program.
  * Created on 30/06/2020.
  */
 public class CanvasApplication {
