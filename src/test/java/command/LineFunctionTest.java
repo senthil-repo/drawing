@@ -26,7 +26,7 @@ public class LineFunctionTest {
     }
 
     @Test
-    public void testapplyCanvasFunction() {
+    public void testApplyCanvasFunction() {
         String params[] = {"1", "2", "6", "2"};
         lineFunction.applyCanvasFunction(inputCanvas, params);
 

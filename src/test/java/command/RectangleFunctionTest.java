@@ -26,7 +26,7 @@ public class RectangleFunctionTest {
     }
 
     @Test
-    public void testRectangleFunction() {
+    public void testApplyCanvasFunction() {
         String params[] = {"5", "1", "10", "3"};
         rectangleFunction.applyCanvasFunction(inputCanvas, params);
         char resultCanvasArray[][] = inputCanvas.getCanvasArray();
