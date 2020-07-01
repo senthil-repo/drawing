@@ -12,4 +12,5 @@ public class Constants {
     public static final char LINE = 'x';
     public static final char HORIZONTAL = '-';
     public static final char VERTICAL = '|';
+    public static final char EMPTY_SPACE = ' ';
 }
