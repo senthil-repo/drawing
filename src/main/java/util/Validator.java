@@ -71,4 +71,7 @@ public class Validator {
         return valid;
     }
 
+    public static boolean isValidCommandOpertion(String commandPrefix) {
+        return commandPrefix.length() == 1 && StringUtils.isAlpha(commandPrefix);
+    }
 }

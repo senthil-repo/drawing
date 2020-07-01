@@ -15,4 +15,8 @@ public class Constants {
     public static final char HORIZONTAL = '-';
     public static final char VERTICAL = '|';
     public static final char EMPTY_SPACE = ' ';
+
+    public static final String ERROR_MESSAGE_INVALID_COMMAND_SUPPLIED = " Invalid command supplied. Please enter a valid command e.g 'C 20 4' ";
+    public static final String ERROR_MESSAGE_INVALID_COMMAND_OPERATION = " Invalid command operation supplied. Please enter a valid command prefix e.g 'C or L or R or B' ";
+    public static final String ERROR_MESSAGE_INVALID_COMMAND_SEQUENCE = " Wrong sequence of command supplied. Please supply a create command first, before draw a line/rectangle/bucket fill ";
 }
