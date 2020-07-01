@@ -1,6 +1,7 @@
 package util;
 
 import domain.Constants;
+import exception.InvalidCommandException;
 import exception.InvalidInputParameterException;
 import org.apache.commons.lang3.StringUtils;
 
@@ -53,6 +54,13 @@ public class Validator {
 
     public static boolean isRectangleParamsValid(String params[]) {
         return isParamsValid(params, Constants.ERROR_MESSAGE_RECTANGLE_INVALID_PARAMS);
+    }
+
+    public static boolean isBucketParamsValid(String params[]) {
+        if (params.length < 3)
+            throw new InvalidInputParameterException(Constants.ERROR_MESSAGE_BUCKET_FILL_INVALID_PARAMS);
+
+        return true;
     }
 
 }

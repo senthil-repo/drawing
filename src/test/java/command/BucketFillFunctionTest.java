@@ -2,6 +2,8 @@ package command;
 
 import domain.Canvas;
 import domain.Constants;
+import exception.InvalidCommandException;
+import exception.InvalidInputParameterException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -32,6 +34,12 @@ public class BucketFillFunctionTest {
         char resultCanvasArray[][] = inputCanvas.getCanvasArray();
         assertEquals(" Wrong result ", 'o', resultCanvasArray[0][0]);
         assertEquals(" Wrong result ", 'x', resultCanvasArray[15][2]);
+    }
+
+    @Test(expected = InvalidInputParameterException.class)
+    public void testApplyCanvasFunction_Wrong_NoOf_Params() {
+        String params[] = {"10", "3"};
+        bucketFillFunction.applyCanvasFunction(inputCanvas, params);
     }
 
     private Canvas getCanvas() {

@@ -2,6 +2,7 @@ package command;
 
 import domain.Canvas;
 import domain.Constants;
+import util.Validator;
 
 /**
  * Created on 30/06/2020.
@@ -10,12 +11,13 @@ public class BucketFillFunction implements CanvasFunction {
     private char colourParam;
     private char canvasArray[][];
 
-
     @Override
     public void applyCanvasFunction(Canvas canvas, String[] params) {
-        this.colourParam = params[2].charAt(0);
-        this.canvasArray = canvas.getCanvasArray();
-        fillTheBucket(Integer.parseInt(params[0]), Integer.parseInt(params[1]));
+        if(Validator.isBucketParamsValid(params)) {
+            this.colourParam = params[2].charAt(0);
+            this.canvasArray = canvas.getCanvasArray();
+            fillTheBucket(Integer.parseInt(params[0]), Integer.parseInt(params[1]));
+        }
     }
 
     private void fillTheBucket(int x, int y) {
