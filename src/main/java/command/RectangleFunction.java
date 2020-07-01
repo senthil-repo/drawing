@@ -3,6 +3,7 @@ package command;
 import domain.Canvas;
 import domain.Constants;
 import domain.Rectangle;
+import exception.InvalidInputParameterException;
 import util.Validator;
 
 /**
@@ -13,6 +14,12 @@ public class RectangleFunction implements CanvasFunction {
     public void applyCanvasFunction(Canvas canvas, String[] params) {
         if(Validator.isRectangleParamsValid(params)) {//validate the params
             Rectangle rectangle = new Rectangle(params);
+
+            if (isOutsideOfRange(rectangle.getX1(), rectangle.getY1(), canvas.getWidth(), canvas.getHeight())
+                    || isOutsideOfRange(rectangle.getX2(), rectangle.getY2(), canvas.getWidth(), canvas.getHeight())) {
+                throw new InvalidInputParameterException(Constants.ERROR_MESSAGE_RECTANGLE_OUTSIDE_CANVAS);
+            }
+
             fillWithRectangle(rectangle, canvas.getCanvasArray());
         }
     }
@@ -26,5 +33,9 @@ public class RectangleFunction implements CanvasFunction {
                 }
             }
         }
+    }
+
+    private boolean isOutsideOfRange(int x, int y, int width, int height) {
+        return x < 1 || x > width || y < 1 || y > height;
     }
 }

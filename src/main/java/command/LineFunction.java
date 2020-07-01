@@ -3,6 +3,7 @@ package command;
 import domain.Canvas;
 import domain.Constants;
 import domain.Line;
+import exception.InvalidInputParameterException;
 import util.Validator;
 
 /**
@@ -13,6 +14,11 @@ public class LineFunction implements CanvasFunction {
     public void applyCanvasFunction(Canvas canvas, String[] params) {
         if(Validator.isLineParamsValid(params)) {//validate the params
             Line line = new Line(params);
+            if (isOutsideOfRange(line.getX1(), line.getY1(), canvas.getWidth(), canvas.getHeight())
+                    || isOutsideOfRange(line.getX2(), line.getY2(), canvas.getWidth(), canvas.getHeight())) {
+                throw new InvalidInputParameterException(Constants.ERROR_MESSAGE_LINE_OUTSIDE_CANVAS);
+            }
+
             fillWithLine(line, canvas.getCanvasArray());
         }
     }
@@ -23,5 +29,9 @@ public class LineFunction implements CanvasFunction {
                 canvasArray[i][j] = Constants.LINE;
             }
         }
+    }
+
+    private boolean isOutsideOfRange(int x, int y, int width, int height) {
+        return x < 1 || x >= width || y < 1 || y >= height;
     }
 }
