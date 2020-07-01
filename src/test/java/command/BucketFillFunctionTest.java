@@ -10,7 +10,6 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -39,6 +38,23 @@ public class BucketFillFunctionTest {
     @Test(expected = InvalidInputParameterException.class)
     public void testApplyCanvasFunction_Wrong_NoOf_Params() {
         String params[] = {"10", "3"};
+        bucketFillFunction.applyCanvasFunction(inputCanvas, params);
+    }
+
+    @Test(expected = InvalidCommandException.class)
+    public void testApplyCanvasFunction_Invalid_Color_Param() {
+        String params[] = {"10", "3", "oo"};
+        try{
+            bucketFillFunction.applyCanvasFunction(inputCanvas, params);
+        } catch(Exception exception) {
+            assertEquals(" Wrong error message returned ", Constants.ERROR_MESSAGE_BUCKET_FILL_INVALID_COLOR_PARAM, exception.getMessage());
+            throw exception;
+        }
+    }
+
+    @Test(expected = InvalidInputParameterException.class)
+    public void testApplyCanvasFunction_Negative_Param() {
+        String params[] = {"-5", "3", "o"};
         bucketFillFunction.applyCanvasFunction(inputCanvas, params);
     }
 

@@ -57,10 +57,18 @@ public class Validator {
     }
 
     public static boolean isBucketParamsValid(String params[]) {
-        if (params.length < 3)
-            throw new InvalidInputParameterException(Constants.ERROR_MESSAGE_BUCKET_FILL_INVALID_PARAMS);
+        boolean valid;
 
-        return true;
+        //check if params are positive integers
+        String tempParams[] = new String[]{params[0], params[1]};
+        valid = areParamsPositiveIntegers(tempParams, Constants.ERROR_MESSAGE_BUCKET_FILL_INVALID_PARAMS);
+
+        if (!valid ||params.length < 3)
+            throw new InvalidInputParameterException(Constants.ERROR_MESSAGE_BUCKET_FILL_INVALID_PARAMS);
+        else if (StringUtils.isBlank(params[2]) || params[2].length() != 1)
+            throw new InvalidCommandException(Constants.ERROR_MESSAGE_BUCKET_FILL_INVALID_COLOR_PARAM);
+
+        return valid;
     }
 
 }
